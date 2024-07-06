@@ -1,0 +1,200 @@
+
+
+body{
+
+  background-color: hsl(0, 0%, 100%);
+}
+
+
+h1, p{
+  color: hsl(0, 0%, 0%);
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+}
+
+p{
+  font-size: 20px;
+}
+
+
+/*HEADER*/
+
+
+@media (max-width: 767px){
+
+  #imgHeader{
+    width: 370px;
+    height: 150px;
+  }
+}
+
+
+
+
+/* NAV */
+
+
+/* barra de navegacion*/
+.navbar {
+  list-style-type: none; /*Elimina los puntos de la lista no ordenada*/
+  background-color: hsl(0, 0%, 0%);
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  height: 100px;
+
+}
+
+/* Crea espacio entre los elementos de la lista*/
+.navbar li{
+  margin: 60px;
+  margin-top: 0px;
+  float: left;
+}
+
+
+/* Color al seleccionar una opcion de la navegacion*/
+.navbar a:hover{
+  background-color: hsl(0, 1%, 23%);
+}
+
+ul li {
+  display: block;
+  margin-bottom: 10px; /* Espacio entre los elementos */
+}
+
+
+  /* Texto de la barra de navegacion*/
+  .navbar a{
+      color: hsl(0, 0%, 100%);
+      display: block;
+      text-align: center;
+      font-size: 70px;
+      font-family: Arial, Helvetica, sans-serif
+  }
+
+
+ul li {
+  display: block;
+  margin-bottom: 0px; /* Espacio entre los elementos */
+}
+
+
+/* NAV Smartphones */
+
+@media (max-width: 767px){
+
+  .navbar a{
+      font-size: 13px;
+  }
+
+  .navbar li{
+      margin: 7px;
+  }
+
+  .navbar {
+      height: 50px;
+  
+  }
+
+}
+
+/* NAV Tabletas pequeñas */
+@media (min-width: 768px) and (max-width: 1023px){
+
+  .navbar a{
+    font-size: 30px;
+}
+
+.navbar li{
+    margin: 15px;
+}
+
+.navbar {
+    height: 80px;
+
+}
+  
+}
+
+/* NAV Laptops y tabletas grandes */
+
+@media(min-width: 1024px) and (max-width: 1439px){
+
+
+  .navbar a{
+      font-size: 40px;
+  }
+
+  .navbar li{
+      margin: 15px;
+  }
+
+  .navbar {
+      height: 100px;
+  
+  }
+}
+
+
+/* FOOTER */
+
+footer{
+  
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 30px;
+  margin-bottom: 0px;
+  padding: 20px;
+  flex-shrink: 0; /* Evita que el footer se encoja cuando hay poco contenido */
+}
+
+#divFooter{
+  display: inline-block;
+}
+
+#fb{
+  margin-left: 10px;
+}
+
+
+main{
+
+  flex: 1;
+}
+
+
+
+/* Boton WhatsApp*/
+
+.whatsapp-button {
+  position: fixed; /* Hace que el botón sea fijo en la pantalla */
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde el borde derecho */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.whatsapp-icon {
+  transition: transform 0.3s ease; /* Agrega una transición suave */
+  margin-left: 20px;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.5); 
+}
+
+
+/* Boton Wha Smartphones */
+
+@media (max-width: 767px){
+
+.whatsapp-icon {
+  height: 50px;
+  width: 50px;
+}
+
+
+
+}
