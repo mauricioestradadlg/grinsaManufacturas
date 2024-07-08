@@ -6,8 +6,17 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://grinsamanufacturas.onrender.com',
+  credentials: true,
+}));
+
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send('Conexión exitosa entre React y Node JS');
+});
+
 
 app.post('/contacto', (req, res) => {
   const { nombre, correo, celular, mensaje } = req.body;
