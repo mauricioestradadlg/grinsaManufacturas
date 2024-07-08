@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,14 +26,14 @@ app.post('/contacto', (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'mauricioestrada580@gmail.com', // Tu correo electrónico
-      pass: 'uqkm thih bipr zkeq' // La contraseña específica de la aplicación
+      user: process.env.USER, // Tu correo electrónico
+      pass: process.env.PASS// La contraseña específica de la aplicación
     }
   });
 
   // Configurar el contenido del correo electrónico
   let mailOptions = {
-    from: 'mauricioestrada580@gmail.com',
+    from: process.env.USER,
     to: 'al02976904@tecmilenio.mx, mauricioestrada580@gmail.com', // Correo electrónico del destinatario
     subject: 'Formulario de Contacto',
     text: `
