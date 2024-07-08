@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -36,7 +35,7 @@ app.post('/contacto', (req, res) => {
   // Configurar el contenido del correo electrónico
   let mailOptions = {
     from: process.env.USER,
-    to: process.env.CORREOS, // Correo electrónico del destinatario
+    to: process.env.USER, // Correo electrónico del destinatario
     subject: 'Formulario de Contacto',
     text: `
       Nombre: ${nombre}
