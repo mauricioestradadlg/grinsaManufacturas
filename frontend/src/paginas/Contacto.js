@@ -18,7 +18,7 @@ export default function Contacto() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/contacto', {
+      const response = await fetch('/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
