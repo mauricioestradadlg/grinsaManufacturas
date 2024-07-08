@@ -11,6 +11,7 @@ import Inicio from './paginas/Inicio';
 import AboutUs from './paginas/AboutUs';
 import Catalogo from './paginas/Catalogo';
 import Contacto from './paginas/Contacto';
+import FormEnviado from './paginas/FormEnviado';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs/>} />
         <Route path="/catalogo" element={<Catalogo/>} />
         <Route path="/contacto" element={<Contacto/>} />
+        <Route path="/formEnviado" element={<FormEnviado />} />
       </Routes>
       <WhatsApp/>
       <Footer/>
