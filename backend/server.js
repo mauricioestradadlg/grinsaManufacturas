@@ -34,7 +34,7 @@ app.post('/contacto', (req, res) => {
   // Configurar el contenido del correo electrónico
   let mailOptions = {
     from: process.env.USER,
-    to: 'al02976904@tecmilenio.mx, mauricioestrada580@gmail.com', // Correo electrónico del destinatario
+    to: process.env.CORREOS, // Correo electrónico del destinatario
     subject: 'Formulario de Contacto',
     text: `
       Nombre: ${nombre}
