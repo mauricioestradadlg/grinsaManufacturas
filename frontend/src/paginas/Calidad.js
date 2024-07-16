@@ -1,9 +1,10 @@
 
-export default function Catalogo(){
+
+export default function Calidad(){
 
     return (
         <main>
-            <h1>SERVICIOS</h1><br/><br/>
+            <h1>CALIDAD</h1><br/><br/>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Sed mattis dui sed aliquam porta. Nam porta nulla at felis sagittis, 

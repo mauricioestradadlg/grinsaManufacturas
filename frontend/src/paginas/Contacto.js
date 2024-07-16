@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const textStyle = {
-  color: 'black',
+  color: 'white',
   fontFamily: 'Arial, Verdana, sans-serif'
 };
 

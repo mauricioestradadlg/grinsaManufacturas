@@ -9,7 +9,9 @@ import WhatsApp from './componentes/WhatsApp';
 
 import Inicio from './paginas/Inicio';
 import AboutUs from './paginas/AboutUs';
-import Catalogo from './paginas/Catalogo';
+import Producto from './paginas/Productos';
+import Servicio from './paginas/Servicios';
+import Calidad from './paginas/Calidad';
 import Contacto from './paginas/Contacto';
 import FormEnviado from './paginas/FormEnviado';
 
@@ -23,7 +25,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/aboutus" element={<AboutUs/>} />
-        <Route path="/catalogo" element={<Catalogo/>} />
+        <Route path="/productos" element={<Producto/>} />
+        <Route path="/servicios" element={<Servicio/>} />
+        <Route path="/calidad" element={<Calidad/>} />
         <Route path="/contacto" element={<Contacto/>} />
         <Route path="/formEnviado" element={<FormEnviado />} />
       </Routes>
