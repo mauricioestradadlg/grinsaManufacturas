@@ -6,11 +6,20 @@ body{
 }
 
 
-h1, p{
+h1, h2, h3, p{
   color: hsl(0, 100%, 100%);
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
+}
+
+h2{
+  font-size: 35px;
+
+}
+
+h3{
+  font-size: 20px;
 }
 
 p{
@@ -18,124 +27,136 @@ p{
 }
 
 
-/*HEADER*/
 
+/* HeaderNavegation.css */
 
-@media (max-width: 767px){
-
-  #imgHeader{
-    width: 370px;
-    height: 150px;
-  }
+.header-nav-container {
+  display: flex;
+  align-items: center;
+  background-color: hsl(0, 0%, 0%);
+  padding: 10px;
 }
 
+#imgHeader {
+  width: 230px;
+  height: 100px;
+  margin-right: 20px;
+}
 
-
-
-/* NAV */
-
-
-/* barra de navegacion*/
+/* barra de navegacion */
 .navbar {
-  list-style-type: none; /*Elimina los puntos de la lista no ordenada*/
-  background-color: hsl(0, 0%, 0%);
+  list-style-type: none;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  height: 100px;
-
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start; /* Alinea hacia la izquierda para estar cerca de la imagen */
 }
 
-/* Crea espacio entre los elementos de la lista*/
-.navbar li{
-  margin: 60px;
-  margin-top: 0px;
+/* Crea espacio entre los elementos de la lista */
+.navbar li {
+  margin: 0 15px;
   float: left;
 }
 
-
-/* Color al seleccionar una opcion de la navegacion*/
-.navbar a:hover{
+/* Color al seleccionar una opción de la navegación */
+.navbar a:hover {
   background-color: hsl(0, 1%, 23%);
 }
 
-ul li {
+.navbar a {
+  color: hsl(0, 0%, 100%);
   display: block;
-  margin-bottom: 10px; /* Espacio entre los elementos */
+  text-align: center;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-
-  /* Texto de la barra de navegacion*/
-  .navbar a{
-      color: hsl(0, 0%, 100%);
-      display: block;
-      text-align: center;
-      font-size: 70px;
-      font-family: Arial, Helvetica, sans-serif
-  }
-
-
-ul li {
-  display: block;
-  margin-bottom: 0px; /* Espacio entre los elementos */
-}
-
 
 /* NAV Smartphones */
-
-@media (max-width: 767px){
-
-  .navbar a{
-      font-size: 13px;
+@media (max-width: 767px) {
+  .header-nav-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .navbar li{
-      margin: 7px;
+  #imgHeader {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    margin-bottom: 10px;
   }
 
   .navbar {
-      height: 50px;
-  
+    flex-direction: column;
+    width: 100%;
   }
 
+  .navbar li {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    font-size: 25px;
+  }
 }
 
 /* NAV Tabletas pequeñas */
-@media (min-width: 768px) and (max-width: 1023px){
-
-  .navbar a{
-    font-size: 30px;
-}
-
-.navbar li{
-    margin: 15px;
-}
-
-.navbar {
-    height: 80px;
-
-}
-  
-}
-
-/* NAV Laptops y tabletas grandes */
-
-@media(min-width: 1024px) and (max-width: 1439px){
-
-
-  .navbar a{
-      font-size: 40px;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header-nav-container {
+    flex-direction: row;
+    align-items: center;
   }
 
-  .navbar li{
-      margin: 15px;
+  #imgHeader {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
   }
 
   .navbar {
-      height: 100px;
-  
+    flex-direction: row;
+    justify-content: flex-start; /* Alinea hacia la izquierda para estar cerca de la imagen */
+  }
+
+  .navbar li {
+    margin: 0 5px;
+  }
+
+  .navbar a {
+    font-size: 15px;
   }
 }
+
+/* NAV Laptops y tabletas grandes */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .header-nav-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #imgHeader {
+    width: 230px;
+    height: auto;
+    margin-right: 20px;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: flex-start; /* Alinea hacia la izquierda para estar cerca de la imagen */
+  }
+
+  .navbar li {
+    margin: 0 7px; /* Reduce el margen para acercar las opciones de navegación */
+  }
+
+  .navbar a {
+    font-size: 20px;
+  }
+}
+
 
 
 /* FOOTER */
