@@ -18,7 +18,7 @@ export default function Contacto() {
     event.preventDefault();
     try {
       console.log('Enviando datos al backend:', { nombre, correo, celular, mensaje });
-      const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', {
+      const response = await fetch('http://localhost:5000/contacto', { // Cambia a HTTP
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,4 +85,3 @@ export default function Contacto() {
     </main>
   );
 }
-

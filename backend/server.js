@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'https://grinsamanufacturas.onrender.com',
+  origin: 'http://localhost:3000',
   credentials: true,
 }));
 
@@ -59,5 +59,5 @@ app.post('/contacto', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+  console.log(`Servidor corriendo en el puerto http://localhost:5000`);
 });
