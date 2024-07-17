@@ -9,6 +9,7 @@ const textStyle = {
 };
 
 export default function Contacto() {
+
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [celular, setCelular] = useState('');
@@ -16,8 +17,11 @@ export default function Contacto() {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
+
     try {
+
         console.log('Enviando datos al backend:', { nombre, correo, celular, mensaje });
         const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', {
         method: 'POST',
@@ -28,17 +32,23 @@ export default function Contacto() {
       });
 
       if (response.ok) {
+
         navigate('/formEnviado');
+
       } else {
+
         alert('Error al registrar el contacto');
       }
     } catch (error) {
+
       console.error('Error:', error);
       alert('Error al registrar el contacto');
+
     }
   };
 
   return (
+
     <main style={{ textAlign: 'left' }}>
       <Container>
         <h1 className="mt-4" style={textStyle}>Contacto</h1>
@@ -83,5 +93,6 @@ export default function Contacto() {
       </Container>
       <br />
     </main>
+    
   );
 }
