@@ -36,7 +36,7 @@ app.post('/contacto', (req, res) => {
   let mailOptions = {
     from: process.env.USER,
     to: process.env.USER, // Correo electrónico del destinatario
-    subject: 'Formulario de Contacto',
+    subject: 'Formulario de Contacto (Pagina Web)',
     text: `
       Nombre: ${nombre}
       Correo: ${correo}
