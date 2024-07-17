@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 
 const app = express();
+
 const port = process.env.PORT || 5000;
 
 app.use(cors({
@@ -16,11 +17,14 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+
   res.send('Conexión exitosa entre React y Node JS');
+
 });
 
 
 app.post('/contacto', (req, res) => {
+
   const { nombre, correo, celular, mensaje } = req.body;
 
   // Configurar el transporte de nodemailer
@@ -34,6 +38,7 @@ app.post('/contacto', (req, res) => {
 
   // Configurar el contenido del correo electrónico
   let mailOptions = {
+
     from: process.env.EMAIL,
     to: process.env.CORREOS, // Correo electrónico del destinatario
     subject: 'Formulario de Contacto (Pagina Web)',
@@ -47,13 +52,16 @@ app.post('/contacto', (req, res) => {
 
   // Enviar el correo electrónico
   transporter.sendMail(mailOptions, (error, info) => {
+
     if (error) {
       console.log(error);
       return res.status(500).send('Error al enviar el correo electrónico');
     }
     console.log('Correo enviado: ' + info.response);
     res.status(200).send('Correo enviado');
+
   });
+  
 });
 
 app.listen(port, () => {
