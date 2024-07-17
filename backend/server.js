@@ -27,15 +27,15 @@ app.post('/contacto', (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.USER, // Tu correo electrónico
+      user: process.env.EMAIL, // Tu correo electrónico
       pass: process.env.PASS// La contraseña específica de la aplicación
     }
   });
 
   // Configurar el contenido del correo electrónico
   let mailOptions = {
-    from: process.env.USER,
-    to: process.env.USER, // Correo electrónico del destinatario
+    from: process.env.EMAIL,
+    to: process.env.CORREOS, // Correo electrónico del destinatario
     subject: 'Formulario de Contacto (Pagina Web)',
     text: `
       Nombre: ${nombre}
