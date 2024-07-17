@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+dotenv.config();
 
 const app = express();
 
@@ -17,51 +18,45 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-
   res.send('Conexión exitosa entre React y Node JS');
-
 });
 
-
-app.post('/contacto', (req, res) => {
-
+app.post('/contacto', async (req, res) => {
   const { nombre, correo, celular, mensaje } = req.body;
 
-  // Configurar el transporte de nodemailer
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL, // Tu correo electrónico
-      pass: process.env.PASS// La contraseña específica de la aplicación
-    }
-  });
+  console.log('Datos recibidos:', { nombre, correo, celular, mensaje });
 
-  // Configurar el contenido del correo electrónico
-  let mailOptions = {
+  try {
+    // Configurar el transporte de nodemailer
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL, // Tu correo electrónico
+        pass: process.env.PASS  // La contraseña específica de la aplicación
+      }
+    });
 
-    from: process.env.EMAIL,
-    to: process.env.CORREOS, // Correo electrónico del destinatario
-    subject: 'Formulario de Contacto (Pagina Web)',
-    text: `
-      Nombre: ${nombre}
-      Correo: ${correo}
-      Celular: ${celular}
-      Mensaje: ${mensaje}
-    `
-  };
+    // Configurar el contenido del correo electrónico
+    let mailOptions = {
+      from: process.env.EMAIL,
+      to: process.env.CORREOS, // Correo electrónico del destinatario
+      subject: 'Formulario de Contacto (Pagina Web)',
+      text: `
+        Nombre: ${nombre}
+        Correo: ${correo}
+        Celular: ${celular}
+        Mensaje: ${mensaje}
+      `
+    };
 
-  // Enviar el correo electrónico
-  transporter.sendMail(mailOptions, (error, info) => {
-
-    if (error) {
-      console.log(error);
-      return res.status(500).send('Error al enviar el correo electrónico');
-    }
+    // Enviar el correo electrónico
+    let info = await transporter.sendMail(mailOptions);
     console.log('Correo enviado: ' + info.response);
     res.status(200).send('Correo enviado');
-
-  });
-  
+  } catch (error) {
+    console.error('Error al enviar el correo:', error);
+    res.status(500).send('Error al enviar el correo electrónico');
+  }
 });
 
 app.listen(port, () => {

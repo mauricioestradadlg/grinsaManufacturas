@@ -1,4 +1,3 @@
-
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,11 +15,10 @@ export default function Contacto() {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
     try {
-        console.log('Enviando datos al backend:', { nombre, correo, celular, mensaje });
-        const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', {
+      console.log('Enviando datos al backend:', { nombre, correo, celular, mensaje });
+      const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,6 +28,8 @@ export default function Contacto() {
       if (response.ok) {
         navigate('/formEnviado');
       } else {
+        const errorData = await response.json();
+        console.error('Error al registrar el contacto:', errorData);
         alert('Error al registrar el contacto');
       }
     } catch (error) {
@@ -39,7 +39,6 @@ export default function Contacto() {
   };
 
   return (
-
     <main style={{ textAlign: 'left' }}>
       <Container>
         <h1 className="mt-4" style={textStyle}>Contacto</h1>
@@ -84,6 +83,6 @@ export default function Contacto() {
       </Container>
       <br />
     </main>
-
   );
 }
+
