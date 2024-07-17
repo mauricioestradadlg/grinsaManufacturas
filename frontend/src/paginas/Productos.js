@@ -93,11 +93,15 @@ export default function Producto(){
             <h2>MAQUINADOS</h2><br/><br/>
 
             <h3>Centro de maquinado CNC, fresadora y rectificado plano</h3><br/><br/>
-            <img id ="imgProducto" src="" alt="producto"/><img src="" alt="producto"/><img src="" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p38.png" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p39.png" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p40.png" alt="producto"/>
             <br/>
 
             <h3>Torno CNC, convencional y rectificado cilíndrico</h3><br/><br/>
-            <img id ="imgProducto" src="" alt="producto"/><img src="" alt="producto"/><img src="" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p41.png" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p42.png" alt="producto"/>
+            <img id ="imgProducto" src="./imagenes/p43.png" alt="producto"/>
             <br/>
     
         </main>
