@@ -1,6 +1,6 @@
 
 const textStyle = {
-    color: 'black', // Cambia a 'black' si quieres texto negro
+    color: 'white', // Cambia a 'black' si quieres texto negro
     fontFamily: 'Arial, Verdana, sans-serif' // Cambia a 'Verdana' si prefieres esa fuente
     
   };
