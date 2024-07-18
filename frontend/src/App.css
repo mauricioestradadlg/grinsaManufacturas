@@ -88,3 +88,45 @@ label{
   #imgProducto{
     margin: 5px;
   }
+
+
+/*FORM ENVIADO*/
+
+#h1AU{
+  font-size: 80px;
+}
+
+.AU{
+
+  font-size: 50px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px){
+
+  #h1AU{
+    font-size: 50px;
+  }
+  
+  .AU{
+  
+    font-size: 20px;
+  }
+
+
+}
+
+
+@media (max-width: 767px){
+
+ 
+  #h1AU{
+    font-size: 20px;
+  }
+  
+  .AU{
+  
+    font-size: 10px;
+  }
+
+}
