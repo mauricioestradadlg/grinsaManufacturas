@@ -1,10 +1,21 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 
 const textStyle = {
   color: 'white',
   fontFamily: 'Arial, Verdana, sans-serif'
+};
+
+const mapContainerStyle = {
+  width: '100%',
+  height: '400px',
+};
+
+const center = {
+  lat: 25.72059084395817, // Latitud de tu ubicación
+  lng: -100.28494357570801, // Longitud de tu ubicación
 };
 
 export default function Contacto() {
@@ -18,7 +29,7 @@ export default function Contacto() {
     event.preventDefault();
     try {
       console.log('Enviando datos al backend:', { nombre, correo, celular, mensaje });
-      const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', { // Cambia a HTTP
+      const response = await fetch('https://grinsamanufacturasbackend.onrender.com/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +88,26 @@ export default function Contacto() {
 
               <Button variant="primary" type="submit">Enviar</Button>
               <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
             </Form>
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          <Col>
+            <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                center={center}
+                zoom={10}
+              >
+                <Marker position={center} />
+              </GoogleMap>
+            </LoadScript>
           </Col>
         </Row>
       </Container>
