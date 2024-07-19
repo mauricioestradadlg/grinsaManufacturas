@@ -1,21 +1,11 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+import MapComponent from './MapComponent'; // Asegúrate de ajustar la ruta si es necesario
 
 const textStyle = {
   color: 'white',
   fontFamily: 'Arial, Verdana, sans-serif'
-};
-
-const mapContainerStyle = {
-  width: '100%',
-  height: '400px',
-};
-
-const center = {
-  lat: 25.72059084395817, // Latitud de tu ubicación
-  lng: -100.28494357570801, // Longitud de tu ubicación
 };
 
 export default function Contacto() {
@@ -99,15 +89,9 @@ export default function Contacto() {
         </Row>
         <Row className="mt-4">
           <Col>
-            <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-              <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={center}
-                zoom={10}
-              >
-                <Marker position={center} />
-              </GoogleMap>
-            </LoadScript>
+            <h2>Ubicacion</h2> 
+            <p>Futuro Nogalar 730, Antiguo Nogalar, 66480 San Nicolás de los Garza, N.L.</p>
+            <MapComponent />
           </Col>
         </Row>
       </Container>
