@@ -49,8 +49,7 @@ export default function Contacto() {
             <img alt="" id="imagenContacto" src="./imagenes/forms.jpeg" />
           </Col>
           <Col md={6} className="mb-4">
-            <br />
-            <br />
+           
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="nombre">
                 <Form.Label style={textStyle}>Nombre:</Form.Label>
@@ -89,6 +88,7 @@ export default function Contacto() {
         </Row>
         <Row className="mt-4">
           <Col>
+            <h2>Telefono: 81 34136152</h2><br/><br/>
             <h2>Ubicacion</h2> 
             <p>Futuro Nogalar 730, Antiguo Nogalar, 66480 San Nicolás de los Garza, N.L.</p>
             <MapComponent />
