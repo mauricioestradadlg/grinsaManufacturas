@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -15,6 +16,9 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
+
+// Middleware para servir los archivos estáticos de React
+app.use(express.static(path.join(__dirname, '..frontend/build')));
 
 app.get('/', (req, res) => {
   res.send('Conexión exitosa entre React y Node JS');
@@ -58,6 +62,11 @@ app.post('/contacto', async (req, res) => {
   }
 });
 
+// Enviar el archivo index.html para cualquier otra ruta
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
+
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto http://localhost:5000`);
+  console.log(`Servidor corriendo en el puerto http://localhost:${port}`);
 });
