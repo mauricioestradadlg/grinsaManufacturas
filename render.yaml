@@ -1,20 +1,19 @@
-version: 1
 services:
   - type: web
-    name: my-react-node-app
-    env: node
-    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
-    startCommand: node server/server.js
-    envVars:
-      - key: NODE_ENV
-        value: production
+    name: grinsamanufacturas-frontend
+    env: static
     staticPublishPath: frontend/build
-    headers:
-      - source: '**'
-        headers:
-          - key: Cache-Control
-            value: max-age=0
-    redirects:
-      - source: '/*'
-        destination: '/'
-        status: 200
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+  - type: web
+    name: grinsamanufacturas-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: node backend/server.js
+
+    routes:
+      - type: proxy
+        source: /api/*
+        destination: https://grinsamanufacturasbackend.onrender.com

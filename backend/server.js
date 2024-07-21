@@ -17,14 +17,12 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-// Middleware para servir los archivos estáticos de React
-app.use(express.static(path.join(__dirname, '..frontend/build')));
-
-app.get('/', (req, res) => {
+// API Routes
+app.get('/api', (req, res) => {
   res.send('Conexión exitosa entre React y Node JS');
 });
 
-app.post('/contacto', async (req, res) => {
+app.post('/api/contacto', async (req, res) => {
   const { nombre, correo, celular, mensaje } = req.body;
 
   console.log('Datos recibidos:', { nombre, correo, celular, mensaje });
@@ -62,7 +60,10 @@ app.post('/contacto', async (req, res) => {
   }
 });
 
-// Enviar el archivo index.html para cualquier otra ruta
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Anything that doesn't match the above, send back index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
